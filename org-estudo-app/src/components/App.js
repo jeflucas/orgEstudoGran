@@ -3,6 +3,7 @@ import Banca from "./Banca";
 import Orgao from "./Orgao";
 import Questoes from "./Questoes";
 import "../App.css";
+import Assuntos from "./Assuntos";
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
         <h1>Programa de Estudos</h1>
         <Banca />
         <Orgao />
+        <Assuntos />
         <Questoes />
       </div>
     );
