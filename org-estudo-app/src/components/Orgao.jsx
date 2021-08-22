@@ -3,31 +3,33 @@ import React from "react";
 class Orgao extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "coconut" };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {};
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
-  handleSubmit(event) {
-    alert("Your favorite flavor is: " + this.state.value);
-    event.preventDefault();
+  getOrgao(arr, comp) {
+    const banca = arr
+      .map((e) => e[comp])
+      .map((e, i, final) => final.indexOf(e) === i && i)
+      .filter((e) => arr[e])
+      .map((e) => arr[e]);
+    return banca;
   }
 
   render() {
+    const orgaos = require("./bdGran.json");
+    const orgaoFiltro = this.getOrgao(orgaos, "orgao");
+
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
           <h2>Selecione o Órgão:</h2>
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
+          <select>
+            {orgaoFiltro.map((orgao) => (
+              <option key={orgao.orgao} value={orgao.orgao}>
+                {orgao.orgao}
+              </option>
+            ))}
+            onChange={this.handleChange}
           </select>
         </label>
         <br />
