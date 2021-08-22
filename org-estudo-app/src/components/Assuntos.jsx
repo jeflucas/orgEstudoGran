@@ -13,7 +13,7 @@ class Assuntos extends React.Component {
   render() {
     const data = require("./bdGran.json");
     const assuntos = this.getAssuntos(data, "assunto");
-    //const qtd = this.getQtdQuestoes(assuntos, this.assunto);
+    console.log(assuntos);
 
     return (
       <div>
