@@ -13,9 +13,7 @@ class Assuntos extends React.Component {
   render() {
     const data = require("./bdGran.json");
     const assuntos = this.getAssuntos(data, "assunto");
-    console.log(assuntos);
-
-    
+    //console.log(assuntos);
 
     return (
       <div>

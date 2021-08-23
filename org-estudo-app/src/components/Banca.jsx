@@ -3,7 +3,20 @@ import React from "react";
 class Banca extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { value: "" };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    var bancaEscolhida = this.state.value;
+    event.preventDefault();
+    return bancaEscolhida;
   }
 
   getBanca(arr, comp) {
@@ -23,13 +36,12 @@ class Banca extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           <h2>Selecione a Banca:</h2>
-          <select>
+          <select value={this.state.value} onChange={this.handleChange}>
             {bancaFiltro.map((banca) => (
               <option key={banca.banca} value={banca.banca}>
                 {banca.banca}
               </option>
             ))}
-            onChange={this.handleChange}
           </select>
         </label>
         <br />
