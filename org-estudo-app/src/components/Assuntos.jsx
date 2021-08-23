@@ -15,6 +15,8 @@ class Assuntos extends React.Component {
     const assuntos = this.getAssuntos(data, "assunto");
     console.log(assuntos);
 
+    
+
     return (
       <div>
         <h2>Assuntos disponíveis:</h2>
