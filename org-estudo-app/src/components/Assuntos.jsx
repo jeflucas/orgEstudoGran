@@ -1,4 +1,5 @@
 import React from "react";
+import Questoes from "./Questoes";
 
 class Assuntos extends React.Component {
   getAssuntos(arr, comp) {
@@ -27,6 +28,8 @@ class Assuntos extends React.Component {
             </li>
           ))}
         </ul>
+
+        <Questoes />
       </div>
     );
   }
